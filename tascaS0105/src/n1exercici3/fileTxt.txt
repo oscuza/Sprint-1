@@ -1,0 +1,22 @@
+D-garbage Modification Date Mon Oct 09 10:51:52 CEST 2023
+------Subdirectory--------
+F-DirList.java Modification Date Mon Oct 09 10:51:58 CEST 2023
+F-Prueba.java Modification Date Mon Oct 09 10:52:22 CEST 2023
+---------------------------
+D-n1exercici1 Modification Date Mon Oct 09 08:52:34 CEST 2023
+------Subdirectory--------
+F-DirectoryList.java Modification Date Mon Oct 09 11:27:36 CEST 2023
+---------------------------
+D-n1exercici2 Modification Date Mon Oct 09 11:25:12 CEST 2023
+------Subdirectory--------
+F-DirectoryList.java Modification Date Tue Oct 10 10:39:44 CEST 2023
+---------------------------
+D-n1exercici3 Modification Date Tue Oct 10 10:43:10 CEST 2023
+------Subdirectory--------
+F-DirectoryListWrite.java Modification Date Tue Oct 10 11:53:38 CEST 2023
+F-fileTxt.txt Modification Date Tue Oct 10 11:54:58 CEST 2023
+---------------------------
+D-n1exercici4 Modification Date Tue Oct 10 11:53:00 CEST 2023
+------Subdirectory--------
+F-DirectoryListWrite.java Modification Date Tue Oct 10 11:53:14 CEST 2023
+---------------------------

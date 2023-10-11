@@ -28,22 +28,23 @@ public class Main {
         Employee employee2 = new Employee("Alfred", "Tired", 31);
         Employee employee3 = new Employee("Mary", "Acount", 38);
         Employee employee4 = new Employee("Oscar", "Cuevas", 49);
-
+        Employee employee5 = new Employee("Pepito", "pepe", 49);
         List<Employee> listEmployees = new ArrayList<Employee>();
 
         listEmployees.add(employee1);
         listEmployees.add(employee2);
         listEmployees.add(employee3);
         listEmployees.add(employee4);
+        listEmployees.add(employee5);
 
-        fileSerialization(listEmployees);
-        fileDesSerialization();
+        fileSerialization(listEmployees, file);
+        fileDesSerialization(file);
 
     }
 
-    public static void fileSerialization(List<Employee> listEmployee) {
+    public static void fileSerialization(List<Employee> listEmployee, File file) {
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("fitxer.ser"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
             for (Employee e : listEmployee) {
                 oos.writeObject(e);
             }
@@ -54,9 +55,9 @@ public class Main {
 
     }
 
-    public static void fileDesSerialization() {
+    public static void fileDesSerialization(File file) {
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("fitxer.ser"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
             while (true) {
                 Employee employee = (Employee) ois.readObject();
                 System.out.println(employee.getName() + " " + employee.getFirstName() + " " + employee.getAge());

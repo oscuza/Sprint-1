@@ -1,51 +1,52 @@
 package n1exercici1;
 
 /**
- *
+ *Crea una classe anomenada NoGenericMethods que emmagatzemi tres objectes del 
+ * mateix tipus, juntament amb els mètodes per a emmagatzemar i extreure 
+ * aquests objectes i un constructor per a inicialitzar els tres.
+ * Comprova que els arguments es poden posar en qualsevol posició
+ * en la crida al constructor.
  * @author OCuevas
  */
 public class NoGenericMethods<T> {
 
-   private String name;
-   private String lastName;
-   private int age;
+    private T obj1;
+    private T obj2;
+    private T obj3;
 
-    public NoGenericMethods(String name, String lastName, int age) {
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age;
+    public NoGenericMethods(T obj1, T obj2, T obj3) {
+        this.obj1 = obj1;
+        this.obj2 = obj2;
+        this.obj3 = obj3;
     }
 
-    public String getName() {
-        return name;
+    public T getObj1() {
+        return obj1;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setObj1(T obj1) {
+        this.obj1 = obj1;
     }
 
-    public String getLastName() {
-        return lastName;
+    public T getObj2() {
+        return obj2;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setObj2(T obj2) {
+        this.obj2 = obj2;
     }
 
-    public int getAge() {
-        return age;
+    public T getObj3() {
+        return obj3;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setObj3(T obj3) {
+        this.obj3 = obj3;
     }
 
     @Override
     public String toString() {
-        return "NoGenericMethods{" + "name=" + name + ", lastName=" + lastName + ", age=" + age + '}';
+        return "NoGenericMethods{" + "obj1=" + obj1 + ", obj2=" + obj2 + ", obj3=" + obj3 + '}';
     }
-   
-   
-
-
+    
 }

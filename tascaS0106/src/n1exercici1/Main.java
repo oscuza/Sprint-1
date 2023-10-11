@@ -19,6 +19,7 @@ public class Main {
 
         Person personExtractPerson3 = personsGeneric1.getObj1();
         System.out.println("Person 3 in personsGeneric1 " + personExtractPerson3.getLastName());
+
         Person personExtractPerson1 = personsGeneric2.getObj1();
         System.out.println("Person 2 in personsGeneric2 " + personExtractPerson1.getLastName());
     }

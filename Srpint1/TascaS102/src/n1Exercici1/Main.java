@@ -17,9 +17,9 @@ public class Main {
     public static void main(String[] args) {
         try {
             List<Producte> productes = new ArrayList<Producte>();
-            productes.add(new Producte("Televisor", 1500.25));
-            productes.add(new Producte("Pilas", 25.26));
-            productes.add(new Producte("MicroHondas", 87.99));
+            //productes.add(new Producte("Televisor", 1500.25));
+            //productes.add(new Producte("Pilas", 25.26));
+            //productes.add(new Producte("MicroHondas", 87.99));
 
             Venda venda = new Venda(productes);
 

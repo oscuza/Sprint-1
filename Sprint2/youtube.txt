@@ -1,0 +1,79 @@
+Taula d'Usuaris:
+
+UserID (clau única)
+Email
+Password
+Nom d'Usuari
+Data de Naixement
+Sexe
+País
+Codi Postal
+Taula de Vídeos:
+
+VideoID (clau única)
+Títol
+Descripció
+Grandària
+Nom de l'Arxiu de Vídeo
+Durada del Vídeo
+Thumbnail
+Nombre de Reproduccions
+Nombre de Likes
+Nombre de Dislikes
+Estat (Públic, Ocult, Privat)
+Data/Hora de Publicació
+UserID (clau externa que fa referència a la taula d'Usuaris)
+Taula d'Etiquetes:
+
+EtiquetaID (clau única)
+Nom de l'Etiqueta
+Taula de Relació Vídeo-Etiqueta:
+
+VideoID (clau externa que fa referència a la taula de Vídeos)
+EtiquetaID (clau externa que fa referència a la taula d'Etiquetes)
+Taula de Canals:
+
+CanalID (clau única)
+Nom del Canal
+Descripció del Canal
+Data de Creació del Canal
+UserID (clau externa que fa referència a la taula d'Usuaris)
+Taula de Subscripcions:
+
+SubscripcioID (clau única)
+Data/Hora de Subscripció
+UserID que Subscriu (clau externa que fa referència a la taula d'Usuaris)
+CanalID Subscrit (clau externa que fa referència a la taula de Canals)
+Taula de Likes i Dislikes:
+
+LikeID (clau única)
+DislikeID (clau única)
+Data/Hora del Like o Dislike
+UserID que dóna Like (clau externa que fa referència a la taula d'Usuaris)
+VideoID que rep Like (clau externa que fa referència a la taula de Vídeos)
+VideoID que rep Dislike (clau externa que fa referència a la taula de Vídeos)
+Taula de Playlists:
+
+PlaylistID (clau única)
+Nom de la Playlist
+Data de Creació de la Playlist
+Estat de la Playlist (Pública o Privada)
+UserID que crea la Playlist (clau externa que fa referència a la taula d'Usuaris)
+Taula de Vídeos a les Playlists:
+
+PlaylistID (clau externa que fa referència a la taula de Playlists)
+VideoID (clau externa que fa referència a la taula de Vídeos)
+Taula de Comentaris:
+
+ComentariID (clau única)
+Text del Comentari
+Data/Hora del Comentari
+UserID que comenta (clau externa que fa referència a la taula d'Usuaris)
+VideoID on es fa el Comentari (clau externa que fa referència a la taula de Vídeos)
+Taula de Likes i Dislikes de Comentaris:
+
+ComentariID (clau externa que fa referència a la taula de Comentaris)
+LikeComentariID (clau única)
+DislikeComentariID (clau única)
+Data/Hora del Like o Dislike del Comentari
+UserID que dóna Like al Comentari (clau externa que fa referència a la taula d'Usuaris)

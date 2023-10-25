@@ -1,0 +1,97 @@
+CREATE DATABASE IF NO EXISTS 'pizzeria' DEFAULT CHARACTER SET utf8mb4;
+USE 'pizzeria';
+
+
+--Table Customer
+CREATE TABLE IF NOT EXISTS Customer(
+	idCustomer INT NOT NULL AUTO_INCREMENT,
+        name VARCHAR(45) NOT NULL, 
+        firstLastName VARCHAR(45) NOT NULL, 
+        postalCode VARCHAR(45) NOT NULL, 
+	phone VARCHAR(45) NOT NULL,
+	fk_Locality_idLocality INT NOT NULL,
+	PRIMARY KEY ('idCustomer'),
+        FOREIGN KEY ('fk_Locality_idLocality') REFERENCES 'Locality' ('idLocality') ON DELETE CASCADE ON  UPDATE CASCADE
+	             )ENGINE=InnoDB;
+	
+--Table Store
+CREATE TABLE IF NOT EXISTS Store(
+	idStore INT NOT NULL AUTO_INCREMENT,
+        address VARCHAR(45), 
+        postalCode VARCHAR(45), 
+	PRIMARY KEY ('idStore'),
+	fk_Locality_idLocality INT NOT NULL,
+	FOREIGN KEY ('fk_Locality_idLocality') REFERENCES 'Locality' ('idLocality') ON DELETE CASCADE ON  UPDATE CASCADE
+	)ENGINE=InnoDB;
+
+--Table Province
+CREATE TABLE IF NOT EXISTS Province(
+	idProvince INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(45) NOT NULL,
+	idCustomer INT NOT NULL,
+	)ENGINE=InnoDB;
+
+--Table Locality
+CREATE TABLE IF NOT EXISTS Locality(
+	idLocality INT NOT NULL AUTO_INCREMENT,
+	nom VARCHAR(25),
+	PRIMARY KEY ('idLocality'),
+	FOREIGN KEY ('fk_Province_idProvince') REFERENCES 'Province' ('idProvince') ON DELETE CASCADE ON UPDATE CASCADE
+	)ENGINE=InnoDB;
+--Table Order
+CREATE TABLE IF NOT EXISTS Order(
+	idOrder INT NOT NULL AUTO_INCREMENT,
+	date DATETIME,
+	totalPrice DOUBLE,
+	quantityProduct VARCHAR(45),
+	PRIMARY KEY ('idOrder'),
+	fk_Customer_idCustomer INT,
+	fk_Store_idStore INT,
+	fk_BuyHome_idBuyHome INT, 
+	FOREIGN KEY ('fk_Customer_idCustomer') REFERENCES 'Customer' ('idCustomer') ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ('fk_Store_idStore') REFERENCES 'Store' ('idStore') ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ('fk_BuyHome_idBuyHome') REFERENCES 'BuyHome' ('idBuyHome') ON DELETE CASCADE ON UPDATE CASCADE
+	)ENGINE=InnoDB;
+--Table ProductPizza
+CREATE TABLE IF NOT EXISTS Product(
+	idProduct INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(45),
+	description VARCHAR(45),
+	image LONGBLOB,
+	price DOUBLE,
+	PRIMARY KEY('idProduct'),
+	fk_Category_idCategory 	INT,
+	fk_Order_idOrder INT,
+	FOREIGN KEY ('fk_Category_idCategory') REFERENCES 'Category' ('idCatetgory') ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY ('fk_Order_idOrder') REFERENCES 'Order' ('idOrder') ON DELETE CASCADE ON UPDATE CASCADE
+	)ENGINE=InnoDB;
+
+--Table Category
+CREATE TABLE IF NOT EXISTS Category(
+	idCategory INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(25),
+	PRIMARY KEY ('idCategory')
+        )ENGINE=InnoDB;
+
+--Table DeliveryBuyHome
+	CREATE TABLE IF NOT EXISTS DeliveryHome(
+	idBuyHome INT NOT NULL AUTO_INCREMENT,
+	data DATETIME,
+	PRIMARY KEY ('idBuyHome '),
+	fk_Employee_idEmployee INT,
+	FOREIGN KEY ('fk_Employee_idEmployee') REFERENCES 'Employee' ('idEmployee') ON DELETE CASCADE ON UPDATE CASCADE
+	)ENGINE=InnoDB;
+
+
+--Table Employee
+	CREATE TABLE IF NOT EXISTS Employee(
+	idEmployee INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(25),
+	firstLastName VARCHAR(25),
+	nif VARCHAR(25),
+	phone VARCHAR(25),
+	typeEmploye ENUM('Chef','Delivery'),
+	PRIMARY KEY ('idEmployee'),
+	fk_Store_idStore INT,
+	FOREIGN KEY ('fk_Store_idStore ) REFERENCES 'Store' ('idStore') ON DELETE CASCADE ON UPDATE CASCADE
+	)ENGINE=InnoDB;

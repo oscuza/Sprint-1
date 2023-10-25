@@ -4,8 +4,8 @@ package n1exercici5;
  *
  * @author oscuz
  */
-//@FunctionalInterface
+@FunctionalInterface
 public interface PiValue {
-    public double getPiValue() ;
+  public double getPiValue() ;
  
 }

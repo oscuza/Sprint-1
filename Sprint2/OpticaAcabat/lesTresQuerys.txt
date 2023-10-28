@@ -1,0 +1,16 @@
+-- Llista el total de factures d'un client/a en un període determinat.
+
+select * from customer 
+where customer.name='oscar cuevas' and registrationDate>'2005-01-24'and registrationDate<'2005-08-25' ;
+
+-- Llista els diferents models d'ulleres que ha venut un empleat/da durant un any.
+
+select c.employeeSale as Employee,g.brand as ModelGlasses from customer c
+inner join glasses g on c.fk_glasses_glassesId=g.glassesId
+where c.employeeSale='Albert Castella';
+
+-- Llista els diferents proveïdors que han subministrat ulleres venudes amb èxit per l'òptica.
+
+select g.brand as model ,s.name supplier from customer c
+inner join glasses g on c.fk_glasses_glassesId=g.glassesId
+inner join supplier s on s.idsupplier=g.fk_supplier_supplierID;

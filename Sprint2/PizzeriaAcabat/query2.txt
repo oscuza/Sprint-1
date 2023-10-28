@@ -1,0 +1,5 @@
+-- Llista quantes comandes ha efectuat un determinat empleat/da.
+
+select cs.idOrder,cs.inHome,e.name,e.firstLastName,e.typeEmployee from cashorder cs
+inner join Employee e on cs.fk_Employee_idEmployee=e.idEmployee
+where e.firstLastName='Dodge';

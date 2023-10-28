@@ -1,0 +1,13 @@
+-- Llista quants productes de categoria 'Begudes' s'han venut en una determinada localitat.
+
+SELECT p.name,c.name,st.locality,cs.idOrder FROM product p
+inner join category c on p.fk_Category_idCategory=c.idCategory
+inner join cashorder cs on p.fk_CashOrder_idOrder=cs.idOrder
+inner join store st on cs.fk_Store_idStore=st.idSTore
+where c.name='Drinks' and st.locality='cunit';
+
+SELECT count(*) as bebidas,st.locality FROM product p
+inner join category c on p.fk_Category_idCategory=c.idCategory
+inner join cashorder cs on p.fk_CashOrder_idOrder=cs.idOrder
+inner join store st on cs.fk_Store_idStore=st.idSTore
+where c.name='Drinks' and st.locality='cunit';
